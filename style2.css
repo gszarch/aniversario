@@ -8,7 +8,7 @@ html, body {
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
   color: #000;
-  overflow-x: hidden; /* permite altura, mas evita corte horizontal */
+  overflow-x: hidden;
 }
 
 canvas {
@@ -20,17 +20,16 @@ canvas {
 
 main {
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
   text-align: center;
-  overflow-x: visible; /* permite as setas aparecerem */
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   margin-bottom: 20px;
   color: #000;
   text-shadow:
@@ -41,9 +40,9 @@ h1 {
 }
 
 .mensagem {
-  font-size: 1.2em;
+  font-size: 1.1em;
   max-width: 90%;
-    margin-top: 60px; /* aumente conforme desejar */
+  margin-top: 50px;
   margin-bottom: 30px;
   color: #000;
   text-shadow:
@@ -53,11 +52,11 @@ h1 {
 
 .galeria-container {
   position: relative;
-  width: 90%;
-  max-width: 1300px;
+  width: 100%;
+  max-width: 1000px;
   margin: auto;
-  overflow: visible; /* importante: deixa as setas aparecerem */
-  height: 470px;
+  overflow: visible;
+  height: 430px;
 }
 
 .galeria {
@@ -65,7 +64,7 @@ h1 {
   flex-direction: row;
   overflow-x: auto;
   scroll-behavior: smooth;
-  gap: 25px;
+  gap: 20px;
   padding: 20px 0;
   height: 100%;
 }
@@ -75,7 +74,7 @@ h1 {
 }
 
 .galeria img {
-  height: 450px;
+  height: 400px;
   width: auto;
   border-radius: 15px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -93,7 +92,7 @@ h1 {
   top: 50%;
   transform: translateY(-50%);
   font-size: 2em;
-  background-color: #ff69b4; /* rosa sólido */
+  background-color: #ff69b4;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -109,17 +108,19 @@ h1 {
 }
 
 .seta.esquerda {
-  left: -50px; /* ajustado: pode trocar para -40px se quiser mais perto */
+  left: -40px;
 }
 
 .seta.direita {
-  right: -50px;
+  right: -40px;
 }
 
 .contador-amor {
-  font-size: 1.3em;
+  font-size: 1.2em;
   margin-top: 30px;
   color: #ff1493;
   font-weight: bold;
   text-shadow: 0 0 5px #ffb6c1;
 }
+
+/* Responsivo

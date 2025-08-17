@@ -6,7 +6,7 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
   font-family: 'Segoe UI', sans-serif;
   color: #000000;
 }
@@ -19,7 +19,7 @@ canvas {
 }
 
 main {
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,11 +29,10 @@ main {
 }
 
 .titulo h1 {
-  font-size: 2.8em;
-  margin-top: -170px;
+  font-size: 2.5em;
   margin-bottom: 15px;
   text-align: center;
-  color: #000; /* cor do texto */
+  color: #000;
   text-shadow:
     -1px -1px 0 #ff7fbf,
     1px -1px 0 #ff7fbf,
@@ -42,9 +41,9 @@ main {
 }
 
 p {
-  font-size: 1.3em;
+  font-size: 1.2em;
   max-width: 90%;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: #000;
   text-shadow:
     0 0 3px #ff7fbf,
@@ -52,7 +51,7 @@ p {
 }
 
 .heart {
-  font-size: 50px;
+  font-size: 2.5em;
   animation: pulse 1.5s infinite;
 }
 
@@ -71,7 +70,7 @@ button {
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 button:hover {
@@ -91,9 +90,10 @@ button:hover {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Estilos do player moderno --- */
+/* Player moderno */
 .music-player {
-  width: 320px;
+  width: 100%;
+  max-width: 350px;
   background: #121212;
   border-radius: 16px;
   padding: 20px;
@@ -101,7 +101,7 @@ button:hover {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   user-select: none;
   box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-  margin: 30px auto 0 auto;
+  margin: 40px auto 0 auto;
 }
 
 .progress-container {
@@ -126,22 +126,7 @@ button:hover {
   height: 16px;
   background: #1DB954;
   border-radius: 50%;
-  cursor: pointer;
   margin-top: -6px;
-  transition: background 0.3s ease;
-}
-
-#progress::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  background: #1DB954;
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-}
-
-#progress:hover::-webkit-slider-thumb {
-  background: #1ed760;
 }
 
 .time {
@@ -157,6 +142,8 @@ button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .control-btn {
@@ -191,7 +178,6 @@ button:hover {
   background: white;
   border-radius: 50%;
   padding: 12px;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .play-pause:hover {
@@ -206,9 +192,31 @@ button:hover {
   height: 28px;
 }
 
-/* Botões shuffle e repeat ativo */
 .control-btn.active {
   color: #1DB954;
   background: rgba(29, 185, 84, 0.15);
 }
 
+/* Responsivo para celular */
+@media (max-width: 480px) {
+  .titulo h1 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .music-player {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 12px 25px;
+  }
+
+  .heart {
+    font-size: 2em;
+  }
+}
