@@ -167,7 +167,7 @@ button:hover {
 }
 
 .control-btn:hover {
-  color: #1DB954;
+  color: #ff0808;
   background: rgba(29, 185, 84, 0.15);
 }
 
@@ -181,7 +181,7 @@ button:hover {
 }
 
 .play-pause:hover {
-  background: #1ed760;
+  background: #ff0000;
   color: #000;
 }
 
