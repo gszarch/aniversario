@@ -124,7 +124,7 @@ button:hover {
   -webkit-appearance: none;
   width: 16px;
   height: 16px;
-  background: #1DB954;
+  background: #ff2a00;
   border-radius: 50%;
   margin-top: -6px;
 }
@@ -174,7 +174,7 @@ button:hover {
 .play-pause {
   width: 58px;
   height: 58px;
-  color: #1DB954;
+  color: #ff0000;
   background: white;
   border-radius: 50%;
   padding: 12px;
