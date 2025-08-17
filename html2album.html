@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosso Álbum 💑</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <!-- Fundo animado -->
+  <canvas id="canvas"></canvas>
+
+  <main>
+    <h1>Letícia...</h1>
+
+    <div class="mensagem">
+      <p>Obrigado por esse ano incrível ao seu lado. Você é a luz da minha vida, o sorriso dos meus dias e o amor que sempre sonhei. ❤️</p>
+      <p>Esse álbum é só uma pequena forma de relembrar os momentos lindos que vivemos juntos! Continue confiando em mim que lhe farei a mulher mais feliz do mundo.</p>
+    </div>
+
+    <!-- Galeria com rolagem horizontal -->
+    <div class="galeria-container">
+      <button class="seta esquerda" onclick="rolarGaleria(-1)">&#10094;</button>
+      
+      <div class="galeria" id="galeria">
+        <img src="foto1.jpg" alt="Foto 1">
+        <img src="foto2.jpg" alt="Foto 2">
+        <img src="foto3.jpg" alt="Foto 3">
+        <img src="foto4.jpg" alt="Foto 4">
+        <img src="foto5.jpg" alt="Foto 5">
+        <img src="foto6.jpg" alt="Foto 6">
+        <img src="foto7.jpg" alt="Foto 7">
+        <img src="foto8.jpg" alt="Foto 8">
+        <img src="foto9.jpg" alt="Foto 9">
+        <img src="foto10.jpg" alt="Foto 10">
+        <img src="foto11.jpg" alt="Foto 11">
+        <img src="foto12.jpg" alt="Foto 12">
+      </div>
+      
+      <button class="seta direita" onclick="rolarGaleria(1)">&#10095;</button>
+    </div>
+
+    <!-- Contador romântico -->
+    <div class="contador-amor" id="contador-amor">
+      Sou feliz ao teu lado há ...
+    </div>
+  </main>
+
+  <script>
+    // Corações animados
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    const hearts = [];
+    const heartCount = 100;
+
+    for (let i = 0; i < heartCount; i++) {
+      hearts.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 20 + 10,
+        speed: Math.random() * 2 + 0.5,
+        opacity: Math.random()
+      });
+    }
+
+    function drawHearts() {
+      ctx.clearRect(0, 0, width, height);
+      for (let heart of hearts) {
+        ctx.font = `${heart.size}px Arial`;
+        ctx.fillStyle = `rgba(255, 0, 100, ${heart.opacity})`;
+        ctx.fillText('❤', heart.x, heart.y);
+
+        heart.y += heart.speed;
+        if (heart.y > height) {
+          heart.y = -heart.size;
+          heart.x = Math.random() * width;
+        }
+      }
+      requestAnimationFrame(drawHearts);
+    }
+
+    drawHearts();
+
+    window.addEventListener('resize', () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    });
+
+    // Galeria
+    function rolarGaleria(direcao) {
+      const galeria = document.getElementById('galeria');
+      const scrollAmount = 450;
+      galeria.scrollBy({
+        left: direcao * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+
+    // Contador romântico
+    function atualizarContador() {
+      const inicio = new Date('2024-08-19T18:30:00');
+      const agora = new Date();
+      const diff = agora - inicio;
+
+      const segundosTotais = Math.floor(diff / 1000);
+      const dias = Math.floor(segundosTotais / (60 * 60 * 24));
+      const horas = Math.floor((segundosTotais % (60 * 60 * 24)) / (60 * 60));
+      const minutos = Math.floor((segundosTotais % (60 * 60)) / 60);
+      const segundos = segundosTotais % 60;
+
+      document.getElementById('contador-amor').innerText =
+        `Sou feliz ao teu lado há ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+</body>
+</html>

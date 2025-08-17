@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000;
+  overflow-x: hidden; /* permite altura, mas evita corte horizontal */
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+main {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+  overflow-x: visible; /* permite as setas aparecerem */
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #000;
+  text-shadow:
+    -1px -1px 0 #ff7fbf,
+    1px -1px 0 #ff7fbf,
+    -1px 1px 0 #ff7fbf,
+    1px 1px 0 #ff7fbf;
+}
+
+.mensagem {
+  font-size: 1.2em;
+  max-width: 90%;
+    margin-top: 60px; /* aumente conforme desejar */
+  margin-bottom: 30px;
+  color: #000;
+  text-shadow:
+    0 0 3px #ff7fbf,
+    0 0 5px #ff66aa;
+}
+
+.galeria-container {
+  position: relative;
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+  overflow: visible; /* importante: deixa as setas aparecerem */
+  height: 470px;
+}
+
+.galeria {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 20px 0;
+  height: 100%;
+}
+
+.galeria::-webkit-scrollbar {
+  display: none;
+}
+
+.galeria img {
+  height: 450px;
+  width: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+  background-color: #ff69b4; /* rosa sólido */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 20;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.seta:hover {
+  background-color: #ff1493;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.seta.esquerda {
+  left: -50px; /* ajustado: pode trocar para -40px se quiser mais perto */
+}
+
+.seta.direita {
+  right: -50px;
+}
+
+.contador-amor {
+  font-size: 1.3em;
+  margin-top: 30px;
+  color: #ff1493;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ffb6c1;
+}
